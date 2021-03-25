@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :resources
   devise_for :users
+  get '/users/:id', to: 'users#show'
   root to: 'pages#home'
 end
