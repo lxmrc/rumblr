@@ -19,8 +19,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'rexml'
 end
 
 group :development do
