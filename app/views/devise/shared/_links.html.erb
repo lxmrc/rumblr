@@ -1,0 +1,12 @@
+<hr/>
+<div class="row">
+  <div class="col text-center">
+    <%- if controller_name != 'sessions' %>
+      <%= link_to "Already have an account? Click here to log in.", new_session_path(resource_name) %><br />
+    <% end %>
+
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Need an account? Click here to sign up.", new_registration_path(resource_name) %><br />
+    <% end %>
+  </div>
+</div>
