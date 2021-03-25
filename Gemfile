@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'simple_form', '~> 5.1'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem 'pry-rails'

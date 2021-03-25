@@ -3,4 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   extend FriendlyId
   friendly_id :username, use: :slugged
+  has_one_attached :profile_picture
 end
