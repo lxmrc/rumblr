@@ -1,0 +1,46 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install PostgreSQL
+      run: sudo apt-get -yqq install postgresql postgresql-contrib
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0.0
+    - name: Install RubyGems
+      run: |
+        bundle install --jobs 4 --retry 3
+    - name: Install Node packages
+      run: |
+        yarn install
+    - name: Compile assets
+      run: |
+        bundle exec rake assets:precompile
+    - name: Setup Database
+      run: |
+        bundle exec rails db:setup
+      env:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        RAILS_ENV: test
+    - name: Run tests
+      run: |
+        bundle exec rspec
