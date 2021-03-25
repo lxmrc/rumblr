@@ -9,6 +9,8 @@
           <div class="form-inputs">
             <%= f.input :profile_picture, as: :file %>
 
+            <%= f.input :bio %>
+
             <%= f.input :email, required: true %>
 
             <%= f.input :password,
@@ -25,7 +27,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Update Account", class: "btn btn-primary btn-block" %>
+            <%= f.button :submit, "Update Account", class: "btn btn-primary btn-block btn-lg" %>
           </div>
         <% end %>
       </div>
