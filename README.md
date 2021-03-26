@@ -6,16 +6,16 @@ Tumblr-like microblogging application.
 
 ### Authentication and user profiles
 
-- [ ] Users can create an account and login.
-- [ ] Users can upload a profile picture.
-- [ ] Users can update their bio.
+- [x] Users can create an account and login.
+- [x] Users can upload a profile picture.
+- [x] Users can update their bio.
 - [ ] Users can change their username.
 
 ### Text posts
 
-- [ ] Users can create text posts.
-- [ ] Users can edit text posts.
-- [ ] Users can delete text posts.
+- [x] Users can create text posts.
+- [x] Users can edit text posts.
+- [x] Users can delete text posts.
 
 ### Likes and comments
 
