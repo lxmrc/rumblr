@@ -1,0 +1,28 @@
+require 'rails_helper'
+
+RSpec.feature "Users can delete posts", type: :feature do
+  let(:alice) { FactoryBot.create(:user) }
+  let(:bob) { FactoryBot.create(:user) }
+
+  let!(:post1) { FactoryBot.create(:post, body: "I'm Alice.", author: alice) }
+  let(:post2) { FactoryBot.create(:post, body: "I'm Bob", author: bob) }
+
+  scenario "that belong to them", js: true do
+    login_as(alice)
+
+    visit user_path(alice)
+    accept_confirm do
+      find("#delete-#{post1.id}").click
+    end
+
+    expect(page).to_not have_content("I'm Alice.")
+  end
+
+  scenario "but not other users'", js: true do
+    login_as(bob)
+
+    visit user_path(alice)
+
+    expect(page).to_not have_selector("#delete-#{post1.id}")
+  end
+end
