@@ -17,7 +17,7 @@ RSpec.feature "Users can delete posts", type: :feature do
     expect(page).to_not have_content("I'm Alice.")
   end
 
-  scenario "but not other users'", js: true do
+  scenario "but not other users'" do
     login_as(bob)
 
     visit user_path(alice)

@@ -1,13 +1,14 @@
 <% if current_user == post.author %>
   <%= link_to edit_post_path(post), 
-    class: 'btn btn-outline-success btn-sm' do %>
-    Edit
+    class: "btn btn-outline-success btn-sm",
+    id: "edit-#{post.id}" do %>
+    <i class="fas fa-pencil-alt"></i>
   <% end %>
   <%= link_to post_path(post), 
     method: :delete, 
-    class: 'btn btn-outline-danger btn-sm',
+    class: "btn btn-outline-danger btn-sm",
     id: "delete-#{post.id}",
     data: { confirm: "Are you sure you want to delete this post?" } do %>
-    Delete
+    <i class="fas fa-trash-alt"></i>
   <% end %>
 <% end %>

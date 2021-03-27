@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.feature "Users can edit posts", type: :feature do
   let(:user) { FactoryBot.create(:user) }
+  let!(:post) { FactoryBot.create(:post, author: user) }
 
   before do
     login_as(user)
-    post = FactoryBot.create(:post, author: user)
-
-    visit post_path(post)
-    click_link "Edit"
+    visit user_path(user)
   end
 
   scenario "with valid attributes" do
+    find("#edit-#{post.id}").click
     fill_in "Title", with: "Edited Post"
     fill_in "Body", with: "This post has been edited."
     click_button "Update Post"
@@ -21,6 +20,7 @@ RSpec.feature "Users can edit posts", type: :feature do
   end
 
   scenario "but body can't be blank" do
+    find("#edit-#{post.id}").click
     fill_in "Body", with: ""
     click_button "Update Post"
 
