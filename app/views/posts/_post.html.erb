@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-12 mx-auto">
-    <div class="card mb-4">
+    <div class="card mt-4">
       <div class="card-body">
         <h4 class="post-title"><%= post.title %></h4>
         <p><%= post.body %></p>
       </div>
       <div class="card-footer text-muted">
-          <span id="notes-<%= post.id %>"><%= pluralize(post.likes.count, 'note') %></span></small>
+          <%= link_to pluralize(post.notes.count, 'note'), post, id: "notes-#{post.id}", class: "text-muted" %>
         <div class="float-right">
           <%= render 'posts/interaction_buttons', post: post %>
           <%= render 'posts/author_buttons', post: post %>

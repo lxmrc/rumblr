@@ -1,3 +1,8 @@
+<%= link_to new_post_comment_path(post), 
+  id: "comment-#{post.id}",
+  class: 'btn btn-outline-primary btn-sm' do %>
+  <i class="far fa-comment"></i>
+<% end %>
 <span id="like-unlike-<%= post.id %>">
   <% like = post.likes.find { |like| like.user == current_user } %>
   <% if like %>
