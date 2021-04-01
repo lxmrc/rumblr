@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:destroy]
 
   def new
-    @comments = @post.comments.order(created_at: :desc)
+    @notes = @post.notes
     @comment = @post.comments.build
   end
 
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment.author = current_user
 
     if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
+      redirect_to @post
     else
       render :new
     end
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to @post, notice: 'Comment was deleted.'
+    redirect_to @post
   end
 
   private

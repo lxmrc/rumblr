@@ -19,11 +19,11 @@ Tumblr-like microblogging application.
 
 ### Likes and comments
 
-- [ ] Users can like and unlike posts.
-- [ ] Users can comment on a post.
+- [x] Users can like and unlike posts.
+- [x] Users can comment on a post.
 - [ ] Users can edit their own comments.
-- [ ] Users can delete their own comments.
-- [ ] Users can delete comments on their posts.
+- [x] Users can delete their own comments.
+- [x] Users can delete comments on their posts.
 
 ### Followers and feed
 
