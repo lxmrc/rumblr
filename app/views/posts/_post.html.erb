@@ -6,7 +6,7 @@
         <p><%= post.body %></p>
       </div>
       <div class="card-footer text-muted">
-          <span id="likes-<%= post.id %>"><%= pluralize(post.likes.count, 'note') %></span></small>
+          <span id="notes-<%= post.id %>"><%= pluralize(post.likes.count, 'note') %></span></small>
         <div class="float-right">
           <%= render 'posts/interaction_buttons', post: post %>
           <%= render 'posts/author_buttons', post: post %>
