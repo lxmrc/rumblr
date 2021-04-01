@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   }
   get '/users/:id', to: 'users#show', as: :user
   root to: 'pages#home'
-  resources :posts
+  resources :posts 
+  post '/post/:id/like', to: 'likes#create', as: :like_post
+  delete '/post/:id/like', to: 'likes#destroy', as: :unlike_post
 end

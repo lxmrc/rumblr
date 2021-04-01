@@ -1,0 +1,8 @@
+<span id="like-unlike-<%= post.id %>">
+  <% like = post.likes.find { |like| like.user == current_user } %>
+  <% if like %>
+    <%= render 'posts/unlike_button', post: post, like: like %>
+  <% else %>
+    <%= render 'posts/like_button', post: post %>
+  <% end %>
+</span>
