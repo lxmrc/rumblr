@@ -1,10 +1,10 @@
-<div class="card-body border-bottom">
-    <% if post.author.profile_picture.attached? %>
-      <%= image_tag post.author.profile_picture.variant(resize_to_limit: [20, 20]), class: 'rounded-1'  %>
-    <% else %>
-      <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
-    <% end %>
-    <small><%= link_to "#{post.author.username}", post.author, class: 'username link' %></small>
+<div class="card-body border-bottom p-1">
+  <%= render 'shared/profile_picture', user: post.author %>
+  <small><%= link_to "#{post.author.username}", post.author, class: 'username link' %> wrote
+  <%= time_ago_in_words(post.created_at) %> ago:</small>
+</div>
+
+<div class="card-body border-bottom px-3 py-3">
   <h4 class="post-title"><%= post.title %></h4>
   <p><%= post.body %></p>
 </div>

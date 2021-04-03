@@ -1,10 +1,6 @@
 <div class="card my-2">
-  <div class="card-header p-1">
-    <% if like.user.profile_picture.attached? %>
-        <%= image_tag like.user.profile_picture.variant(resize_to_limit: [20, 20]), class: 'img-thumbnail' %>
-    <% else %>
-      <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
-    <% end %>
+  <div class="card-header border-bottom-0 p-1">
+    <%= render 'shared/profile_picture', user: like.user %>
     <%= link_to "#{like.user.username} liked this.", like.user, class: 'link' %></small>
   </div>
 </div>

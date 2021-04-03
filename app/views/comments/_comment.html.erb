@@ -1,10 +1,6 @@
 <div class="card my-2">
   <div class="card-header p-1">
-    <% if comment.author.profile_picture.attached? %>
-      <%= image_tag comment.author.profile_picture.variant(resize_to_limit: [20, 20]), class: 'img-thumbnail' %>
-    <% else %>
-      <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
-    <% end %>
+    <%= render 'shared/profile_picture', user: comment.author %>
     <%= link_to "#{comment.author.username}", comment.author, class: 'username link' %><span class="text-muted"> wrote <%= time_ago_in_words(comment.created_at) %> ago:</span></small>
 
     <div class="float-right">

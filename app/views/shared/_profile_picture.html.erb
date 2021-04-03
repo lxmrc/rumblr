@@ -1,0 +1,5 @@
+<% if user.profile_picture.attached? %>
+    <%= image_tag user.profile_picture.variant(resize_to_limit: [20, 20]).processed, class: 'img-thumbnail' %>
+<% else %>
+  <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
+<% end %>

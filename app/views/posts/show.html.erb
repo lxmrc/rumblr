@@ -6,31 +6,6 @@
 
 <div class="row mb-4">
   <div class="col-6 mx-auto">
-    <div class="card my-2">
-      <div class="card-header p-1">
-        <% if @post.root.author.profile_picture.attached? %>
-            <%= image_tag @post.root.author.profile_picture.variant(resize_to_limit: [20, 20]), class: 'img-thumbnail' %>
-        <% else %>
-          <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
-        <% end %>
-        <%= link_to "#{@post.root.author.username} posted this.", @post.root, class: 'link' %></small>
-      </div>
-    </div>
-    <% @post.notes.each do |note| %>
-      <% if note.class == Post %>
-        <div class="card my-2">
-          <div class="card-header p-1">
-            <% if note.author.profile_picture.attached? %>
-                <%= image_tag note.author.profile_picture.variant(resize_to_limit: [20, 20]), class: 'img-thumbnail' %>
-            <% else %>
-              <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
-            <% end %>
-            <%= link_to "#{note.author.username} reblogged this.", note, class: 'link' %></small>
-          </div>
-        </div>
-      <% else %>
-        <%= render note %>
-      <% end %>
-    <% end %>
+    <%= render 'posts/notes' %>
   </div>
 </div>
