@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   post '/post/:id/like', to: 'likes#create', as: :like_post
   delete '/post/:id/like', to: 'likes#destroy', as: :unlike_post
+
+  get '/post/:id/reblog', to: 'posts#new_reblog', as: :new_reblog
+  post '/post/:id/reblog', to: 'posts#create_reblog', as: :reblog_post
 end

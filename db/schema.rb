@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_035801) do
+ActiveRecord::Schema.define(version: 2021_04_03_010403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,9 @@ ActiveRecord::Schema.define(version: 2021_04_01_035801) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.bigint "author_id", null: false
-    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
-    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -66,11 +64,19 @@ ActiveRecord::Schema.define(version: 2021_04_01_035801) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "post_notes", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.string "note_type", null: false
+    t.bigint "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_type", "note_id"], name: "index_post_notes_on_note"
+    t.index ["post_id"], name: "index_post_notes_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -79,6 +85,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_035801) do
     t.bigint "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_posts_on_ancestry"
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
@@ -100,9 +108,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_035801) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users", column: "author_id"
-  add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "post_notes", "posts"
   add_foreign_key "posts", "users", column: "author_id"
 end

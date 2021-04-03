@@ -23,6 +23,6 @@ class LikesController < ApplicationController
   end
 
   def set_like
-    @like = Like.find_by(user: current_user, post: @post)
+    @like = @post.likes.find_by(user_id: current_user.id)
   end
 end

@@ -40,12 +40,29 @@ class PostsController < ApplicationController
     redirect_to current_user, notice: 'Post was successfully destroyed.'
   end
 
+  def new_reblog
+    @parent = Post.find(params[:id])
+    @post = @parent.children.build(author: current_user)
+  end
+
+  def create_reblog
+    @parent = Post.find(params[:id])
+    @post = @parent.children.build(post_params)
+    @post.author = current_user
+
+    if @post.save
+      redirect_to @post
+    else
+      render :new_reblog
+    end
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :parent_id)
     end
 end

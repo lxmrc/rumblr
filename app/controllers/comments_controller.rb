@@ -11,10 +11,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.build(comment_params)
-    @comment.author = current_user
+    @comment = @post.comments.create(comment_params.merge(author: current_user))
 
-    if @comment.save
+    if @comment.persisted?
       redirect_to @post
     else
       render :new
@@ -28,7 +27,7 @@ class CommentsController < ApplicationController
 
   private
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @post.comments.find(params[:id])
     end
 
     def set_post

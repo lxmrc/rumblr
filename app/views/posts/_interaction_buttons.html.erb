@@ -1,3 +1,9 @@
+<%= link_to new_reblog_path(post),
+  id: "reblog-#{post.id}",
+  class: 'btn btn-outline-primary btn-sm' do %>
+  <i class="fas fa-retweet"></i>
+<% end %>
+
 <%= link_to new_post_comment_path(post), 
   id: "comment-#{post.id}",
   class: 'btn btn-outline-primary btn-sm' do %>

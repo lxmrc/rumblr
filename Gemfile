@@ -15,6 +15,7 @@ gem 'simple_form', '~> 5.1'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'image_processing', '~> 1.2'
 gem 'aws-sdk-s3', '~> 1.93', require: false
+gem 'ancestry', '~> 3.2', '>= 3.2.1'
 
 group :development, :test do
   gem 'pry-rails'
