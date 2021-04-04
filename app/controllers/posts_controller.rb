@@ -51,6 +51,7 @@ class PostsController < ApplicationController
     @post.author = current_user
 
     if @post.save
+      @note = PostNote.create(post_id: @parent.root.id, note_id: @post.id, note_type: 'Post')
       redirect_to @post
     else
       render :new_reblog
