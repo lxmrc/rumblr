@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :set_like
 
   def create
-    @post.likes.create(user: current_user) unless @like.present?
+    @post.root.likes.create(user: current_user) unless @like.present?
     respond_to do |format|
       format.js
     end
@@ -23,6 +23,6 @@ class LikesController < ApplicationController
   end
 
   def set_like
-    @like = @post.likes.find_by(user_id: current_user.id)
+    @like = @post.root.likes.find_by(user_id: current_user.id)
   end
 end

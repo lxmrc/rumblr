@@ -10,7 +10,7 @@
   <i class="far fa-comment"></i>
 <% end %>
 <span id="like-unlike-<%= post.id %>">
-  <% like = post.likes.find { |like| like.user == current_user } %>
+  <% like = post.root.likes.find { |like| like.user == current_user } %>
   <% if like %>
     <%= render 'posts/unlike_button', post: post, like: like %>
   <% else %>

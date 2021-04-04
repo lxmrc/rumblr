@@ -6,9 +6,7 @@
       <% end %>
       <%= render 'posts/body', post: post %>
       <div class="card-footer text-muted border-top-0">
-        <%= link_to post, id: "notes-#{post.id}", class: "text-muted" do %>
-          <small><%= time_ago_in_words(post.created_at) %> ago &middot; <%= pluralize(post.notes.count, 'note') %></small>
-        <% end %>
+          <%= render 'posts/time_and_notes', post: post %>
         <div class="float-right">
           <%= render 'posts/interaction_buttons', post: post %>
           <%= render 'posts/author_buttons', post: post %>
