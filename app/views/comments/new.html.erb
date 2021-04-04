@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-6 mx-auto">
     <div class="card mb-4">
-      <div class="card-body">
-        <h4 class="post-title"><%= @post.title %></h4>
-        <p><%= @post.body %></p>
-      </div>
-      <div class="card-footer text-muted">
+      <% @post.ancestors.each do |ancestor| %>
+        <%= render 'posts/body', post: ancestor %>
+      <% end %>
+      <%= render 'posts/body', post: @post %>
+      <div class="card-footer text-muted border-top-0">
         <%= render 'comments/form' %>
       </div>
     </div>

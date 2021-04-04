@@ -2,10 +2,9 @@
   <div class="col-6 mx-auto">
     <div class="card shadow">
       <h5 class="card-header">Reblog</h5>
-      <div class="card-body border-bottom">
-        <h4 class="post-title"><%= @parent.title %></h4>
-        <p><%= @parent.body %></p>
-      </div>
+      <% @post.ancestors.each do |ancestor| %>
+        <%= render 'posts/body', post: ancestor %>
+      <% end %>
       <div class="card-body">
         <%= simple_form_for(@post, url: reblog_post_path(@parent)) do |f| %>
           <%= f.error_notification %>
