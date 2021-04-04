@@ -1,23 +1,23 @@
 <div class="row mb-4">
   <div class="col-6 mx-auto">
-      <div class="card shadow" >
-        <div class="row no-gutters">
-          <div class="col-md-3">
-            <% if @user.profile_picture.attached? %>
-              <%= image_tag @user.profile_picture, class: 'card-img', id: 'profile-picture' %>
+    <div class="card" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <% if @user.profile_picture.attached? %>
+            <%= image_tag @user.profile_picture.variant(resize: "180x150^", crop: '180x180+0+0').processed, class: 'card-img' %>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title"><%= @user.username %></h3>
+            <p><%= @user.bio %></p>
+            <% if current_user == @user %>
+              <%= link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-primary btn-sm'%>
             <% end %>
-          </div>
-          <div class="col-md-5">
-            <div class="card-body">
-              <h3 class="card-title"><%= @user.username %></h3>
-              <p><%= @user.bio %></p>
-              <% if current_user == @user %>
-                <%= link_to 'Edit profile', edit_user_registration_path(@user), class: 'btn btn-primary btn-sm'%>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
