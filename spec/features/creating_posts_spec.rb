@@ -5,7 +5,6 @@ RSpec.feature "Users can create posts", type: :feature do
 
   before do
     login_as(user)
-
     visit root_path
     click_link "New Post"
   end
@@ -15,7 +14,6 @@ RSpec.feature "Users can create posts", type: :feature do
     fill_in "Body", with: "This is a test post."
     click_button "Create Post"
 
-    expect(page).to have_content("Post was successfully created.")
     expect(page).to have_content("Test Post")
     expect(page).to have_content("This is a test post.")
   end
@@ -28,7 +26,7 @@ RSpec.feature "Users can create posts", type: :feature do
     expect(page).to have_content("This is a post without a title.")
   end
 
-  scenario "without body" do
+  scenario "but not without body" do
     fill_in "Title", with: "This is a post without a body."
     click_button "Create Post"
 

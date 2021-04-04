@@ -4,7 +4,7 @@
       <div class="row no-gutters">
         <div class="col-md-4">
           <% if @user.profile_picture.attached? %>
-            <%= image_tag @user.profile_picture.variant(resize: "180x150^", crop: '180x180+0+0').processed, class: 'card-img' %>
+            <%= image_tag @user.profile_picture.variant(resize: "180x150^", crop: '180x180+0+0').processed, class: 'card-img', id: 'profile-picture' %>
           <% end %>
         </div>
         <div class="col-md-8">
