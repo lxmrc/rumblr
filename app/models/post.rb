@@ -7,6 +7,6 @@ class Post < ApplicationRecord
   has_many :likes, through: :post_notes, source: :note, source_type: 'Like'
 
   def notes
-    root.post_notes.map(&:note)
+    root.post_notes.order(created_at: :desc).map(&:note)
   end
 end

@@ -1,10 +1,3 @@
-<div class="card my-1">
-  <div class="card-header border-bottom-0 p-1">
-    <%= render 'shared/profile_picture', user: @post.root.author %>
-    <%= link_to "#{@post.root.author.username} posted this.", @post.root, class: 'link' %></small>
-  </div>
-</div>
-
 <% @post.notes.each do |note| %>
   <% if note.class == Post %>
     <%= render 'posts/reblog', reblog: note %>
@@ -12,3 +5,11 @@
     <%= render note %>
   <% end %>
 <% end %>
+
+<div class="card my-1">
+  <div class="card-header border-bottom-0 p-1">
+    <%= render 'shared/profile_picture', user: @post.root.author %>
+    <%= link_to "#{@post.root.author.username} posted this.", @post.root, class: 'link' %></small>
+  </div>
+</div>
+
