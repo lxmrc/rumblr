@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -15,6 +16,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if current_user != @post.author
+      redirect_to @post, notice: "That doesn't belong to you."
+    end
   end
 
   def create
@@ -65,5 +69,9 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :body, :parent_id)
+    end
+
+    def authorize_user
+      current_user == @post.author
     end
 end

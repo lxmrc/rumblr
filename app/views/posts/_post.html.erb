@@ -8,8 +8,10 @@
       <div class="card-footer text-muted border-top-0">
           <%= render 'posts/time_and_notes', post: post %>
         <div class="float-right">
-          <%= render 'posts/interaction_buttons', post: post %>
-          <%= render 'posts/author_buttons', post: post %>
+          <% if user_signed_in? %>
+            <%= render 'posts/interaction_buttons', post: post %>
+            <%= render 'posts/author_buttons', post: post %>
+          <% end %>
         </div>
       </div>
     </div>
