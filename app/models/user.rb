@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: true
+  
   validates :username, format: { with:  /\A[a-zA-Z0-9\-]+\z/ }, length: { maximum: 32 }
 
   extend FriendlyId

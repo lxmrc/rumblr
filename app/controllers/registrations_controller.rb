@@ -1,4 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
+  def update
+    super
+    resource.update(slug: resource.username)
+  end
 
   def destroy
     resource.soft_delete
@@ -15,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(user)
-    current_user
+    user_path(user.username)
   end
 
   def update_resource(resource, params)
