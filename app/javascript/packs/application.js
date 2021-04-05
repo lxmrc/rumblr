@@ -13,3 +13,7 @@ ActiveStorage.start()
 
 import "@fortawesome/fontawesome-free/js/all";
 import '../css/main.scss'
+
+require("trix")
+require("@rails/actiontext")
+

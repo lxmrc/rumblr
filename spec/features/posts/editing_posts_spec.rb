@@ -12,19 +12,19 @@ RSpec.feature "Users can edit posts", type: :feature do
     visit user_path(user)
   end
 
-  scenario "with title and body" do
+  scenario "with title and body", js: true do
     find("#edit-#{post.id}").click
     fill_in "Title", with: "Edited Post"
-    fill_in "Body", with: "This post has been edited."
+    fill_in_trix_editor "post_content", with: "This post has been edited."
     click_button "Update Post"
 
     expect(page).to have_content "Edited Post"
     expect(page).to have_content "This post has been edited."
   end
 
-  scenario "without title" do
+  scenario "without title", js: true do
     find("#edit-#{post.id}").click
-    fill_in "Body", with: "This is a post without a title."
+    fill_in_trix_editor "post_content", with: "This is a post without a title."
     click_button "Update Post"
 
     expect(page).to have_content "This is a post without a title."

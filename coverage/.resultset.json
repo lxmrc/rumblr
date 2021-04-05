@@ -38,6 +38,7 @@
           1,
           1,
           1,
+          1,
           null,
           null,
           null,
@@ -94,8 +95,6 @@
           1,
           null,
           null,
-          null,
-          1,
           null,
           1,
           null
@@ -123,7 +122,7 @@
           1,
           1,
           null,
-          null,
+          1,
           1,
           null,
           1,
@@ -1626,6 +1625,13 @@
           null
         ]
       },
+      "/home/ioan/code/projects/rumblr/spec/support/capybara_helpers.rb": {
+        "lines": [
+          1,
+          4,
+          null
+        ]
+      },
       "/home/ioan/code/projects/rumblr/spec/features/comments/deleting_comments_spec.rb": {
         "lines": [
           1,
@@ -2209,6 +2215,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           48,
@@ -2488,6 +2495,6 @@
         ]
       }
     },
-    "timestamp": 1617600353
+    "timestamp": 1617604595
   }
 }

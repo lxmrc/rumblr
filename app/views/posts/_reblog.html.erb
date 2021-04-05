@@ -4,6 +4,6 @@
     <%= link_to "#{reblog.author} reblogged this and wrote:", reblog, class: 'link' %></small>
   </div>
   <div class="card-body px-3 py-2">
-    <p class="text-break mb-1"><%= sanitize(truncate(reblog.body, omission: "...", length: 150)) %></p>
+    <p class="text-break mb-1"><%= sanitize(truncate(reblog.content.to_plain_text, omission: "...", length: 150)) %></p>
   </div>
 </div>

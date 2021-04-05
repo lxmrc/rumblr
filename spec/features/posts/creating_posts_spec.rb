@@ -9,17 +9,17 @@ RSpec.feature "Users can create posts", type: :feature do
     click_link "New Post"
   end
 
-  scenario "with title and body" do
+  scenario "with title and body", js: true do
     fill_in "Title", with: "Test Post"
-    fill_in "Body", with: "This is a test post."
+    fill_in_trix_editor "post_content", with: "This is a test post."
     click_button "Create Post"
 
     expect(page).to have_content("Test Post")
     expect(page).to have_content("This is a test post.")
   end
 
-  scenario "without title" do
-    fill_in "Body", with: "This is a post without a title."
+  scenario "without title", js: true do
+    fill_in_trix_editor "post_content", with: "This is a post without a title."
     click_button "Create Post"
 
     expect(page).to have_content("Post was successfully created.")
@@ -37,7 +37,7 @@ RSpec.feature "Users can create posts", type: :feature do
   scenario "without body or title" do
     click_button "Create Post"
 
-    expect(page).to have_content("Body can't be blank")
+    expect(page).to have_content("Content can't be blank")
     expect(page).to have_content("Title can't be blank")
     expect(page).to_not have_content("This is a post without a body.")
   end

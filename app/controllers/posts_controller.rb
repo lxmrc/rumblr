@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :parent_id)
+    params.require(:post).permit(:title, :content, :parent_id)
   end
 
   def authorize_user

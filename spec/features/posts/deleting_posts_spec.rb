@@ -4,7 +4,7 @@ RSpec.feature "Users can delete posts", type: :feature do
   let(:alice) { FactoryBot.create(:user) }
   let(:bob) { FactoryBot.create(:user) }
 
-  let!(:post) { FactoryBot.create(:post, body: "I'm Alice.", author: alice) }
+  let!(:post) { FactoryBot.create(:post, content: "I'm Alice.", author: alice) }
 
   scenario "that belong to them", js: true do
     login_as(alice)
