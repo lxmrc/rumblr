@@ -64,4 +64,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::Test::IntegrationHelpers, type: :feature
+
+  Capybara.default_max_wait_time = 5
 end

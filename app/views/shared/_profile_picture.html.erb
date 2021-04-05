@@ -1,4 +1,4 @@
-<% if user.profile_picture.attached? %>
+<% if user.profile_picture.attached? && user.deleted_at.nil? %>
     <%= image_tag user.profile_picture.variant(resize: "20x20^", crop: '20x20+0+0').processed, class: 'img-thumbnail' %>
 <% else %>
   <%= image_tag 'https://via.placeholder.com/20', class: 'img-thumbnail' %>
