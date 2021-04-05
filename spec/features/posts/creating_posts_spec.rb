@@ -26,11 +26,19 @@ RSpec.feature "Users can create posts", type: :feature do
     expect(page).to have_content("This is a post without a title.")
   end
 
-  scenario "but not without body" do
+  scenario "without body" do
     fill_in "Title", with: "This is a post without a body."
     click_button "Create Post"
 
+    expect(page).to have_content("Post was successfully created.")
+    expect(page).to have_content("This is a post without a body.")
+  end
+
+  scenario "without body or title" do
+    click_button "Create Post"
+
     expect(page).to have_content("Body can't be blank")
+    expect(page).to have_content("Title can't be blank")
     expect(page).to_not have_content("This is a post without a body.")
   end
 end

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  validates :body, presence: true
+  validates :title, presence: true, unless: -> { body.present? }
+  validates :body, presence: true, unless: -> { title.present? }
   belongs_to :author, class_name: 'User'
   has_ancestry
   has_many :post_notes, dependent: :destroy
