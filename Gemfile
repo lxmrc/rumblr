@@ -25,6 +25,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'rexml'
+  gem 'simplecov', require: false, group: :test
 end
 
 group :development do
