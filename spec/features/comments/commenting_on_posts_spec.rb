@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Users can comment on posts", type: :feature do
   let(:author) { FactoryBot.create(:user) }

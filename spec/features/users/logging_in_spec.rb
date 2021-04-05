@@ -1,9 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "User log in", type: :feature do
-  let!(:user) { FactoryBot.create(:user, 
-                                 email: "user@example.com", 
-                                 username: "test-user") }
+  let!(:user) {
+    FactoryBot.create(:user,
+      email: "user@example.com",
+      username: "test-user")
+  }
 
   before do
     visit root_path

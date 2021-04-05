@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Users can like posts and unlike posts", type: :feature do
   let(:author) { FactoryBot.create(:user) }

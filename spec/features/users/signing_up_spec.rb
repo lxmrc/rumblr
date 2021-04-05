@@ -1,7 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "User registration", type: :feature do
-
   before do
     visit root_path
     click_link "Sign up"

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Users can edit their profiles", type: :feature do
   let(:user) { FactoryBot.create(:user, email: "user@example.com") }
@@ -59,6 +59,6 @@ RSpec.feature "Users can edit their profiles", type: :feature do
     click_button "Update Account"
 
     expect(page).to have_content "Your account has been updated successfully."
-    expect(page.find('#profile-picture')['src']).to have_content 'test.png'
+    expect(page.find("#profile-picture")["src"]).to have_content "test.png"
   end
 end

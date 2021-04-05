@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to current_user, notice: 'Post was successfully created.'
+      redirect_to current_user, notice: "Post was successfully created."
     else
       render :new
     end
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: "Post was successfully updated."
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to current_user, notice: 'Post was successfully destroyed.'
+    redirect_to current_user, notice: "Post was successfully destroyed."
   end
 
   def new_reblog
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @post.author = current_user
 
     if @post.save
-      @note = PostNote.create(post_id: @parent.root.id, note_id: @post.id, note_type: 'Post')
+      @note = PostNote.create(post_id: @parent.root.id, note_id: @post.id, note_type: "Post")
       redirect_to @post
     else
       render :new_reblog
@@ -63,15 +63,16 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    def post_params
-      params.require(:post).permit(:title, :body, :parent_id)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def authorize_user
-      current_user == @post.author
-    end
+  def post_params
+    params.require(:post).permit(:title, :body, :parent_id)
+  end
+
+  def authorize_user
+    current_user == @post.author
+  end
 end

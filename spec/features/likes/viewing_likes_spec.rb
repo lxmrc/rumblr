@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Users can see likes", type: :feature do
   let(:author) { FactoryBot.create(:user) }

@@ -1,9 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Account deletion", type: :feature do
-  let!(:user) { FactoryBot.create(:user, 
-                                 email: "user@example.com", 
-                                 username: "test-user") }
+  let!(:user) {
+    FactoryBot.create(:user,
+      email: "user@example.com",
+      username: "test-user")
+  }
 
   let!(:post) { FactoryBot.create(:post, author: user) }
   let!(:like) { FactoryBot.create(:like, user: user, post: post) }
