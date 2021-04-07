@@ -1,20 +1,18 @@
 <div class="row">
-  <div class="col-5 mx-auto">
-    <div class="card shadow">
-      <h5 class="card-header">Create an account</h5>
-      <div class="card-body">
+  <div class="col-md-5 col-sm-12 mx-auto">
+    <div class="card rounded-0">
+      <h5 class="card-header py-2">Create an account</h5>
+      <div class="card-body p-md-4 p-sm-2">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
             <%= f.input :email,
                         required: true,
-                        autofocus: true,
                         input_html: { autocomplete: "email" }%>
             <%= f.input :username,
                         required: true,
                         pattern: "[a-zA-Z0-9]+",
-                        autofocus: true,
                         input_html: { autocomplete: "username" }%>
             <%= f.input :password,
                         required: true,

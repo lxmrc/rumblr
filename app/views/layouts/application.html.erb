@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rumblr</title>
+    <title>rumblr</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,14 +15,14 @@
     <div class="row">
       <div class="col mx-auto">
         <% flash.each do |key, message| %>
-          <div class="alert alert-primary rounded-0 mb-0">
+          <div class="alert alert-primary rounded-0 mb-0 p-1">
             <%= message %>
           </div>
         <% end %>
       </div>
     </div>
     <%= render 'shared/navbar' %>
-    <div class="container p-4">
+    <div class="container p-1">
       <%= yield %>
     </div>
   </body>

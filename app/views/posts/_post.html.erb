@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row mb-1">
   <div class="col-12 mx-auto">
-    <div class="card mt-4">
+    <div class="card rounded-0">
       <% post.ancestors.each do |ancestor| %>
         <%= render 'posts/body', post: ancestor %>
       <% end %>
       <%= render 'posts/body', post: post %>
-      <div class="card-footer text-muted border-top-0">
+      <div class="card-footer text-muted border-top-0 p-1">
           <%= render 'posts/time_and_notes', post: post %>
         <div class="float-right">
           <% if user_signed_in? %>

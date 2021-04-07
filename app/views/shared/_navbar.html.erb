@@ -1,17 +1,19 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light bg-light py-0 border-bottom">
   <div class="container-fluid">
-    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to 'New Post', new_post_path, class: "btn btn-primary" %></li>
-          <li class="nav-item"><%= link_to current_user, user_path(current_user), class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link" %></li>
-        <% end %>
-      </ul>
+    <%= link_to "rumblr", root_path, class: "navbar-brand" %>
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+      <div class="dropdown-menu dropdown-menu-right">
+          <% if user_signed_in? %>
+            <%= link_to 'New post', new_post_path, class: "dropdown-item" %>
+            <%= link_to 'View profile', user_path(current_user), class: "dropdown-item" %>
+            <%= link_to 'Edit profile', edit_user_registration_path(current_user), class: "dropdown-item" %>
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+            <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+      </div>
     </div>
   </div>
 </nav>

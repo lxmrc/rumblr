@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-6 mx-auto">
-    <div class="card shadow mb-5">
-      <h5 class="card-header">Edit profile</h5>
-      <div class="card-body">
+  <div class="col-md-5 col-sm-12 mx-auto">
+    <div class="card mb-2 rounded-0">
+      <h5 class="card-header p-2">Edit profile</h5>
+      <div class="card-body p-md-4 p-sm-2">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
 

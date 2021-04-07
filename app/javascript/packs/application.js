@@ -6,6 +6,7 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
+import "bootstrap"
 
 Rails.start()
 Turbolinks.start()
@@ -16,4 +17,3 @@ import '../css/main.scss'
 
 require("trix")
 require("@rails/actiontext")
-

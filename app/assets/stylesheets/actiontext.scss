@@ -44,6 +44,8 @@
 
 trix-editor {
   &.form-control {
-    height: auto;
+		height: 300px !important;
+		max-height: 720px !important;
+    overflow-y: auto !important;
   }
 }

@@ -1,10 +1,12 @@
 <div class="card-header border-bottom p-1">
   <%= render 'shared/profile_picture', user: post.author %>
-  <small><%= link_to "#{post.author}", post.author, class: 'username link' %> posted
+  <%= link_to "#{post.author}", post.author, class: 'username link' %> posted
   <%= time_ago_in_words(post.created_at) %> ago:</small>
 </div>
 
-<div class="card-body border-bottom px-3 py-3">
-  <h4 class="post-title"><%= post.title %></h4>
-  <p><%= post.content %></p>
+<div class="card-body border-bottom p-2">
+  <% if post.title %>
+    <h4 class="post-title"><%= post.title %></h4>
+  <% end %>
+  <%= post.content %>
 </div>
