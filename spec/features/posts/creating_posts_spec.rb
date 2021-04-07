@@ -5,7 +5,7 @@ RSpec.feature "Users can create posts", type: :feature do
 
   before do
     login_as(user)
-    visit root_path
+    visit user_path(user)
     click_link "New Post"
   end
 

@@ -23,6 +23,7 @@ RSpec.feature "Account deletion", type: :feature do
 
     expect(page).to have_content("Your account has been deleted.")
 
+    click_button "Menu"
     click_link "Log in"
 
     fill_in "Email", with: "user@example.com"

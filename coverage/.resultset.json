@@ -1564,10 +1564,10 @@
           1,
           null,
           1,
-          99,
+          38,
           1,
           null,
-          98,
+          37,
           null,
           null,
           null,
@@ -1931,6 +1931,7 @@
           1,
           null,
           1,
+          1,
           null,
           1,
           1,
@@ -2229,11 +2230,11 @@
           1,
           null,
           1,
-          27,
-          27,
+          31,
+          31,
           0,
           null,
-          27,
+          31,
           null,
           null,
           null,
@@ -2442,14 +2443,6 @@
           null
         ]
       },
-      "/home/ioan/code/projects/rumblr/app/controllers/pages_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
       "/home/ioan/code/projects/rumblr/app/controllers/registrations_controller.rb": {
         "lines": [
           1,
@@ -2483,6 +2476,14 @@
           null
         ]
       },
+      "/home/ioan/code/projects/rumblr/app/controllers/pages_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/ioan/code/projects/rumblr/app/controllers/sessions_controller.rb": {
         "lines": [
           1,
@@ -2495,6 +2496,6 @@
         ]
       }
     },
-    "timestamp": 1617760391
+    "timestamp": 1617781014
   }
 }

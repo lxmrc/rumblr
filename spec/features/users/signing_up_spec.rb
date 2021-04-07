@@ -14,12 +14,12 @@ RSpec.feature "User registration", type: :feature do
     click_button "Sign up"
 
     expect(page).to have_content "Welcome! Complete your profile below."
-    expect(page).to have_content "valid-username69"
-    expect(page).to have_content "New Post"
-    expect(page).to have_content "Profile"
+    expect(page).to have_content "New post"
+    expect(page).to have_content "View profile"
+    expect(page).to have_content "Edit profile"
     expect(page).to have_content "Log out"
 
-    expect(page).to have_content "Edit profile"
+    expect(page).to have_field("user[username]", with: "valid-username69")
     expect(page).to have_field "user[profile_picture]"
     expect(page).to have_field "user[bio]"
   end
