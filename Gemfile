@@ -27,6 +27,7 @@ group :development, :test do
   gem "rexml"
   gem "simplecov", require: false
   gem "standard"
+  gem "guard-rspec"
 end
 
 group :development do
