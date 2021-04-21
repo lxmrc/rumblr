@@ -1,38 +1,6 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-7 mx-auto">
-        <h1 class="mb-3">Posts</h1>
-        <table class="table table-sm">
-          <thead class="thead-light">
-            <tr>
-                              <th>Title</th>
-                              <th>Body</th>
-                            <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @posts.each do |post| %>
-              <tr>
-                                  <td>
-                    <%= post.title %>
-                  </td>      
-                                  <td>
-                    <%= post.body %>
-                  </td>      
-                                <td>
-                  <div class="float-right">
-                    <%= link_to 'Show', post, class:"btn btn-light min-width-btn" %>
-                    <%= link_to 'Edit', edit_post_path(post),class:"btn btn-primary min-width-btn"  %>     
-                    <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger min-width-btn"%>
-                  </div>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <br>
-        <%= link_to 'Add Post', new_post_path,class:"btn btn-success min-width-btn" %>
-      </div>
-    </div>
+<div class="row mt-4">
+  <div class="col-md-6 col-sm-12 mx-auto">
+    <%= render @posts %>
   </div>
 </div>
+
