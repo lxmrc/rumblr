@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Account deletion", type: :feature do
+RSpec.feature "Users can delete their accounts", type: :feature do
   let!(:user) {
     FactoryBot.create(:user,
       email: "user@example.com",
@@ -27,13 +27,13 @@ RSpec.feature "Account deletion", type: :feature do
     click_link "Log in"
 
     fill_in "Email", with: "user@example.com"
-    fill_in "user_password", with: "password"
+    fill_in "Password", with: "password"
     click_button "Log in"
 
     expect(page).to have_content "Invalid Email or password."
   end
 
-  scenario "destroys likes and comments", js: true do
+  scenario "destroys likes and comments but not posts", js: true do
     visit post_path(post)
 
     expect(page).to have_content "test-user liked this."
@@ -45,10 +45,11 @@ RSpec.feature "Account deletion", type: :feature do
       click_link "Delete my account"
     end
 
-    sleep(2)
+    expect(page).to have_content("Your account has been deleted.")
 
     visit post_path(post)
 
+    expect(page).to have_content "[deleted] posted"
     expect(page).to have_content "This is an example of a post."
     expect(page).to_not have_content "test-user liked this."
     expect(page).to_not have_content "This is a comment."
