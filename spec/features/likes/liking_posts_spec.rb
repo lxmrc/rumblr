@@ -10,7 +10,7 @@ RSpec.feature "Users can like posts and unlike posts", type: :feature do
     visit user_path(author)
   end
 
-  scenario "if they feel like it", js: true do
+  scenario "if they like them", js: true do
     notes = find(:css, "#notes-#{post.id}")
 
     expect(notes).to have_content("0 notes")

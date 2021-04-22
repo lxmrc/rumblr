@@ -1,2 +1,3 @@
-$('#notes-<%= @post.id %>').html("<%= escape_javascript(render 'posts/time_and_notes', post: @post) %>")
+$('#notes-<%= @post.id %>').replaceWith("<%= escape_javascript(render 'posts/time_and_notes', post: @post) %>")
 $('#like-unlike-<%= @post.id %>').html("<%= escape_javascript(render 'posts/unlike_button', post: @post) %>")
+$('#notes').html("<%= escape_javascript(render 'posts/notes', post: @post) %>")
