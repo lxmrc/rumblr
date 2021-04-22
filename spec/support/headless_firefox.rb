@@ -12,10 +12,5 @@ RSpec.configure do |config|
       options: options
   end
 
-  case ENV["GUI"]
-  when "true", "1"
-    Capybara.javascript_driver = :firefox
-  else
-    Capybara.javascript_driver = :headless_firefox
-  end
+  Capybara.javascript_driver = ENV['GUI'] ? :firefox : :headless_firefox
 end
