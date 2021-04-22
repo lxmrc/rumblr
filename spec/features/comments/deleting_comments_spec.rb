@@ -27,6 +27,8 @@ RSpec.feature "Users can delete comments", type: :feature do
 
     expect(page).to have_content("Great post!")
 
+    save_and_open_page
+
     accept_confirm do
       find("#delete-#{comment.id}").click
     end
@@ -34,7 +36,7 @@ RSpec.feature "Users can delete comments", type: :feature do
     expect(page).to_not have_content("Great post!")
   end
 
-  scenario "but otherwise nah" do
+  scenario "but not if the comment doesn't belong to them" do
     login_as(charlie)
     visit post_path(post)
 
