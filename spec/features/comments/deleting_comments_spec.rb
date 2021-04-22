@@ -12,12 +12,14 @@ RSpec.feature "Users can delete comments", type: :feature do
     login_as(bob)
     visit post_path(post)
 
+    expect(page).to have_content("This is an example of a post.")
     expect(page).to have_content("Great post!")
 
     accept_confirm do
-      find("#delete-#{comment.id}").click
+      find("#delete-comment-#{comment.id}").click
     end
 
+    expect(page).to have_content("This is an example of a post.")
     expect(page).to_not have_content("Great post!")
   end
 
@@ -25,14 +27,14 @@ RSpec.feature "Users can delete comments", type: :feature do
     login_as(alice)
     visit post_path(post)
 
+    expect(page).to have_content("This is an example of a post.")
     expect(page).to have_content("Great post!")
 
-    save_and_open_page
-
     accept_confirm do
-      find("#delete-#{comment.id}").click
+      find("#delete-comment-#{comment.id}").click
     end
 
+    expect(page).to have_content("This is an example of a post.")
     expect(page).to_not have_content("Great post!")
   end
 
