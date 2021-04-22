@@ -28,6 +28,7 @@ group :development, :test do
   gem "simplecov", require: false
   gem "standard"
   gem "guard-rspec"
+  gem "database_cleaner-active_record"
 end
 
 group :development do
