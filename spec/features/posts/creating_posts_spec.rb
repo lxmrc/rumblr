@@ -39,6 +39,5 @@ RSpec.feature "Users can create posts", type: :feature do
 
     expect(page).to have_content("Content can't be blank")
     expect(page).to have_content("Title can't be blank")
-    expect(page).to_not have_content("This is a post without a body.")
   end
 end

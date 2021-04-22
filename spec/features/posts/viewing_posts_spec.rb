@@ -30,4 +30,11 @@ RSpec.feature "Users can see each posts", type: :feature do
     expect(page).to have_content("I'm Bob.")
     expect(page).to_not have_content("I'm Alice.")
   end
+
+  scenario "on the posts index" do
+    visit posts_path
+
+    expect(page).to have_content("I'm Alice.")
+    expect(page).to have_content("I'm Bob.")
+  end
 end
