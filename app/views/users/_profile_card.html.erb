@@ -1,0 +1,34 @@
+<div class="row mb-1">
+  <div class="col-md-6 col-sm-12 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <% if user.profile_picture.attached? %>
+              <%= image_tag user.profile_picture.variant(resize: "180x150^", crop: '180x180+0+0').processed, class: 'card-img', id: 'profile-picture' %>
+            <% end %>
+          </div>
+          <div class="col-8">
+            <h3 class="card-title"><%= user.username %></h3>
+            <p><%= user.bio %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if user == current_user %>
+  <div class="row mb-1">
+    <div class="col-md-6 col-sm-12 mx-auto">
+      <div class="btn-group btn-block">
+        <%= link_to new_post_path, class: "btn btn-primary" do %>
+          <i class="fas fa-edit"></i> New Post
+        <% end %>
+        <%= link_to edit_user_registration_path(@user), class: 'btn btn-success' do %>
+          <i class="fas fa-user-edit"></i> Edit Profile
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
