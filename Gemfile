@@ -29,6 +29,8 @@ group :development, :test do
   gem "standard"
   gem "guard-rspec"
   gem "database_cleaner-active_record"
+  gem "launchy"
+  gem "bullet"
 end
 
 group :development do
