@@ -17,6 +17,8 @@ RSpec.feature "Users can delete posts", type: :feature do
       find("#delete-#{post.id}").click
     end
 
+    sleep(1)
+
     visit user_path(alice)
 
     expect(page).to_not have_content("I'm Alice.")

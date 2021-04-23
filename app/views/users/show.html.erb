@@ -1,23 +1,9 @@
 <%= render 'users/profile_card', user: @user %>
 
-<% if current_user == @user %>
-  <div class="row mb-1">
-    <div class="col-md-6 col-sm-12 mx-auto">
-      <div class="btn-group btn-block">
-        <%= link_to new_post_path, class: "btn btn-primary" do %>
-          <i class="fas fa-edit"></i> New Post
-        <% end %>
-        <%= link_to edit_user_registration_path(@user), class: 'btn btn-success' do %>
-          <i class="fas fa-user-edit"></i> Edit Profile
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
-
 <div class="row mt-4">
   <div class="col-md-6 col-sm-12 mx-auto">
-    <%= render @posts %>
+    <% @posts.each do |post| %>
+      <%= render 'posts/thread', thread: post.path %>
+    <% end %>
   </div>
 </div>
-

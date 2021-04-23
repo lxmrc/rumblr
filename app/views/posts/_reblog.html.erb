@@ -1,9 +1,9 @@
 <div class="card my-1 rounded-0">
-  <div class="card-header p-1">
-    <%= render 'shared/profile_picture', user: reblog.author %>
-    <%= link_to "#{reblog.author} reblogged this and wrote:", reblog, class: 'link' %></small>
-  </div>
+  <%= render 'notes/note_header', 
+    user: reblog.author,
+    action: "reblogged this and wrote:",
+    link: reblog %>
   <div class="card-body p-2">
-    <p class="text-break mb-1"><%= sanitize(truncate(reblog.content.to_plain_text, omission: "...", length: 150)) %></p>
+    <p class="text-break mb-1"><%= sanitize(truncate(reblog.content, omission: "...", length: 150)) %></p>
   </div>
 </div>

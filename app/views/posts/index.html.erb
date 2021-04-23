@@ -1,6 +1,7 @@
 <div class="row mt-4">
   <div class="col-md-6 col-sm-12 mx-auto">
-    <%= render @posts %>
+    <% @posts.each do |post| %>
+      <%= render 'posts/thread', thread: post.path %>
+    <% end %>
   </div>
 </div>
-

@@ -1,15 +1,16 @@
 <% @post.notes.each do |note| %>
   <% if note.class == Post %>
-    <%= render 'posts/reblog', reblog: note %>
+    <% if note.empty_reblog? %>
+      <%= render 'notes/empty_reblog', reblog: note %>
+    <% else %>
+      <%= render 'posts/reblog', reblog: note %>
+    <% end %>
   <% else %>
     <%= render note %>
   <% end %>
 <% end %>
 
-<div class="card rounded-0 my-1">
-  <div class="card-header border-bottom-0 p-1">
-    <%= render 'shared/profile_picture', user: @post.root.author %>
-    <%= link_to "#{@post.root.author.username} posted this.", @post.root, class: 'link' %></small>
-  </div>
-</div>
-
+<%= render 'notes/note_header', 
+  user: @post.root.author,
+  action: "posted this.",
+  link: @post.root %>

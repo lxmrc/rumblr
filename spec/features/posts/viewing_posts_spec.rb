@@ -31,7 +31,7 @@ RSpec.feature "Users can see each posts", type: :feature do
     expect(page).to_not have_content("I'm Alice.")
   end
 
-  scenario "on the posts index" do
+  scenario "on the global dashboard" do
     visit posts_path
 
     expect(page).to have_content("I'm Alice.")

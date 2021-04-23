@@ -1,0 +1,14 @@
+<div class="row my-3">
+  <div class="col-12 mx-auto">
+    <div class="card" id="thread">
+      <%= render('posts/thread_header', post: thread.last) if thread.size > 1 %>
+      <% thread.each do |post| %>
+        <% unless post.empty_reblog? %>
+          <%= render 'posts/post_header', post: post %>
+          <%= render 'posts/body', post: post %>
+        <% end %>
+      <% end %>
+      <%= render 'posts/footer', post: thread.last %>
+    </div>
+  </div>
+</div>

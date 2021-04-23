@@ -1,0 +1,5 @@
+<div class="card-header border-bottom p-1">
+  <%= render 'shared/profile_picture', user: post.author %>
+  <%= link_to "#{post.author}", post.author, class: 'username link' %> reblogged this
+  <%= time_ago_in_words(post.created_at) %> ago:</small>
+</div>

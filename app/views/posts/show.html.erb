@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row mt-4">
   <div class="col-md-6 col-sm-12 mx-auto">
-    <%= render @post %>
+    <%= render 'posts/thread', thread: @post.path %>
   </div>
 </div>
 
 <div class="row mb-4">
   <div class="col-md-6 col-sm-12 mx-auto" id="notes">
-    <%= render 'posts/notes' %>
+    <%= render 'posts/notes', post: @post %>
   </div>
 </div>
