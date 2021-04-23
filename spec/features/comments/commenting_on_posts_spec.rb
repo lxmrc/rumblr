@@ -10,7 +10,7 @@ RSpec.feature "Users can comment on posts", type: :feature do
     visit user_path(author)
   end
 
-  scenario "if they wanna" do
+  scenario "if they have something to say" do
     find("#comment-#{post.id}").click
 
     expect(page).to have_selector("#comment_body")
@@ -19,5 +19,16 @@ RSpec.feature "Users can comment on posts", type: :feature do
     click_on "Add Comment"
 
     expect(page).to have_content("Great post!")
+  end
+
+  scenario "but they can't say nothing" do
+    find("#comment-#{post.id}").click
+
+    expect(page).to have_selector("#comment_body")
+
+    fill_in "Say something nice:", with: ""
+    click_on "Add Comment"
+
+    expect(page).to have_content("Body can't be blank")
   end
 end
