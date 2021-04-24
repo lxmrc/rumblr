@@ -1,0 +1,33 @@
+<div class="row mt-4">
+  <div class="col-md-8 col-sm-12 mx-auto">
+    <h1 id="rumblr">rumblr</h1>
+    <hr />
+    <p>A Tumblr-like microblogging application made with Ruby on Rails. Initially an attempt at recreating the microblogging application from <a href="https://railstutorial.org">Michael Hartl’s Rails Tutorial</a> from scratch while referring to the tutorial as little as possible in order to solidify my understanding.</p>
+
+    <p>Once the basic “micropost” functionality was in place I decided to add likes, comments and reblogs (a.k.a.: retweets/quote tweets).</p>
+
+    <h2 id="challenges">Challenges</h2>
+    <hr />
+
+    <p>Likes and comments were relatively straightforward but reblogs turned out to be somewhat more complicated than anything else I’d done in Rails before.</p>
+
+    <h3 id="hierarchical-data-models">Hierarchical data models</h3>
+
+    <p>Reblogs are essentially posts that are associated with other posts. Each reblog has one parent and any number of children, each of which can represent a new branch of the reblog tree or graph, creating what I would later learn is called a <a href="https://en.wikipedia.org/wiki/Hierarchical_database_model">hierarchical database model</a>. I struggled to implement this with basic ActiveRecord associations and later to efficiently traverse the tree.</p>
+
+    <p>Eventually I discovered the <a href="https://github.com/stefankroes/ancestry">Ancestry gem</a> was the most straightforward way of implementing this.</p>
+
+    <h3 id="reverse-polymorphic-associations">Reverse polymorphic associations</h3>
+
+    <p>Once I had reblogs in place I wanted to be able to display all of the “notes” associated with a post, meaning all of its likes, comments and reblogs together. I had a feeling this was what they call a “polymorphic association” but all of the examples online weren’t quite what I was looking for. For instance, the Rails guides provide this example:</p>
+
+    <blockquote>
+      <p>With polymorphic associations, a model can belong to more than one other model, on a single association. For example, you might have a picture model that belongs to either an employee model or a product model.</p>
+    </blockquote>
+
+    <p>I struggled to adapt various examples online to my specific situation until I figured out that what I was trying to do was the reverse of those examples: rather than a model that can belong to more than one other model on a single association, I needed a model that could “have many” different kinds of models through the same association.</p>
+
+    <p>Luckily I came across <a href="http://www.99linesofcode.com/polymorphic-associations-in-ruby-on-rails-part-2-reverse-polymorphic-associations/">this post</a> which finally allowed me to set up the associations I needed.</p>
+
+  </div>
+</div>
