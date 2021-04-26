@@ -11,6 +11,29 @@
           <div class="col-8">
             <h3 class="card-title"><%= user.username %></h3>
             <p><%= user.bio %></p>
+            <a href="<%= following_user_path(@user) %>">
+              <strong id="following" class="stat">
+                <%= @user.following.count %>
+              </strong>
+            following
+            </a>
+            <a href="<%= followers_user_path(@user) %>">
+              <strong id="followers" class="stat">
+                <%= @user.followers.count %>
+              </strong>
+            followers
+            </a>
+            <% if user_signed_in? %>
+              <% unless user == current_user %>
+                <div id="follow_form">
+                  <% if current_user&.following?(@user) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
