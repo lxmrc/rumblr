@@ -19,7 +19,7 @@ demo.profile_picture.attach(io: File.open(Rails.root.join("app/assets/images/wah
               password: "#{name}_password",
               password_confirmation: "#{name}_password",
               bio: "I'm #{name}.")
-  user.profile_picture.attach(io: URI.open("https://loremflickr.com/300/300"), filename: "#{name}.jpg")
+  user.profile_picture.attach(io: URI.open("https://loremflickr.com/300/300/cats"), filename: "#{name}.jpg")
 end
 
 users = User.all.where.not(username: "demo")
