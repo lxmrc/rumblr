@@ -1,6 +1,6 @@
-<div class="card-header border-bottom p-1">
-  <%= render 'shared/profile_picture', user: post.author %>
-  <%= link_to "#{post.author}", post.author, class: 'username link' %> posted
-  <%= time_ago_in_words(post.created_at) %> ago:</small>
+<div style="padding: 0.5em; display: inline-block; vertical-align: top;" class="mr-2">
+  <% if post.author.profile_picture.attached? %>
+    <%= image_tag post.author.profile_picture.variant(resize: "25x25").processed, style: "margin-right: 0.25em; border-radius: 2px;" %>
+  <% end %>
+  <strong><%= link_to "#{post.author}", post.author, class: 'post.authorname link' %></strong>
 </div>
-

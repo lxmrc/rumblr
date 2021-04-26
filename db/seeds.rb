@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+demo = User.create(username: "demo",
+                  password: "password",
+                  password_confirmation: "password",
+                  bio: "Demo user.")
+
+demo.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/wahoo.jpg')),
+                  filename: 'wahoo.jpg')
+
 alice = User.create(username: "alice",
             email: "alice@rumblr.com",
             password: "alice's password",

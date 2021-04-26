@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Users can see each posts", type: :feature do
+RSpec.feature "Users can see each others' posts", type: :feature do
   let(:alice) { FactoryBot.create(:user) }
   let(:bob) { FactoryBot.create(:user) }
 

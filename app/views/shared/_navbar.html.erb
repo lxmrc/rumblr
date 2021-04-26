@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light py-0 border-bottom">
   <div class="container-fluid">
     <%= link_to "rumblr", root_path, class: "navbar-brand" %>
-    <div class="dropdown">
-      <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+    <div class="dropdown"> <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
       <div class="dropdown-menu dropdown-menu-right">
           <% if user_signed_in? %>
+            <%= link_to 'Dashboard', user_feed_path, class: "dropdown-item" %>
             <%= link_to 'New post', new_post_path, class: "dropdown-item" %>
             <%= link_to 'View profile', user_path(current_user), class: "dropdown-item" %>
             <%= link_to 'Edit profile', edit_user_registration_path(current_user), class: "dropdown-item" %>
