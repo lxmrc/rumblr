@@ -6,7 +6,7 @@ RSpec.feature "Users can delete comments", type: :feature do
   let(:charlie) { FactoryBot.create(:user) }
 
   let!(:post) { FactoryBot.create(:post, author: alice) }
-  let!(:comment) { FactoryBot.create(:comment, body: "Great post!", author: bob, post: post) }
+  let!(:comment) { FactoryBot.create(:comment, content: "Great post!", author: bob, post: post) }
 
   scenario "if the comment belongs to them", js: true do
     login_as(bob)

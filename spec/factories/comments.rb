@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :comment do
-    body { "This is a comment." }
+    content { "This is a comment." }
     author { association :user }
     post
   end
